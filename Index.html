@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CRM</title>
+
+<style>
+body { font-family:'Segoe UI'; background:#111827; color:white; text-align:center; }
+input { padding:10px; margin:5px; }
+button { padding:10px; margin:5px; cursor:pointer; }
+li { background:#1f2937; margin:10px auto; width:250px; padding:10px; border-radius:5px; }
+</style>
+
+</head>
+<body>
+
+<h1>Lead Manager</h1>
+
+<input id="name" placeholder="Name">
+<input id="email" placeholder="Email"><br>
+
+<button onclick="addLead()">Add</button>
+<button onclick="clearAll()">Clear All</button>
+
+<ul id="list"></ul>
+
+<script>
+function addLead() {
+  let n = name.value;
+  let e = email.value;
+
+  if(n=="" || e=="") {
+    alert("Fill all fields");
+    return;
+  }
+
+  let li = document.createElement("li");
+  li.innerHTML = "<b>"+n+"</b><br>"+e+"<br><button onclick='this.parentElement.remove()'>Delete</button>";
+
+  list.appendChild(li);
+
+  name.value="";
+  email.value="";
+}
+
+function clearAll() {
+  list.innerHTML = "";
+}
+</script>
+
+</body>
+</html>
